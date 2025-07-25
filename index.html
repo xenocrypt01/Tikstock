@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Security Assessment Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fab fa-tiktok"></i>
+                    <h1>TikTok Security Assessment Tool</h1>
+                </div>
+                <p class="subtitle">Advanced Penetration Testing Framework</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Scan Configuration -->
+            <section class="scan-config" id="scanConfig">
+                <h2><i class="fas fa-cog"></i> Scan Configuration</h2>
+                
+                <div class="form-group">
+                    <label for="target">Target Domain:</label>
+                    <input type="text" id="target" value="tiktok.com" placeholder="Enter target domain">
+                </div>
+
+                <div class="form-group">
+                    <label>Scan Types:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="recon" value="recon" checked>
+                            <span class="checkmark"></span>
+                            <i class="fas fa-search"></i> Reconnaissance
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="api" value="api" checked>
+                            <span class="checkmark"></span>
+                            <i class="fas fa-code"></i> API Testing
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="web" value="web" checked>
+                            <span class="checkmark"></span>
+                            <i class="fas fa-globe"></i> Web Security
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="mobile" value="mobile">
+                            <span class="checkmark"></span>
+                            <i class="fas fa-mobile-alt"></i> Mobile Testing
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="startScan">
+                    <i class="fas fa-play"></i> Start Security Scan
+                </button>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <h2><i class="fas fa-chart-line"></i> Scan Progress</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="progress-text" id="progressText">Initializing scan...</p>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2><i class="fas fa-shield-alt"></i> Security Assessment Results</h2>
+                
+                <div class="results-summary" id="resultsSummary">
+                    <div class="summary-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span class="count" id="criticalCount">0</span>
+                        <span class="label">Critical</span>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span class="count" id="highCount">0</span>
+                        <span class="label">High</span>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-exclamation"></i>
+                        <span class="count" id="mediumCount">0</span>
+                        <span class="label">Medium</span>
+                    </div>
+                    <div class="summary-card">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="count" id="lowCount">0</span>
+                        <span class="label">Low</span>
+                    </div>
+                </div>
+
+                <div class="results-container" id="resultsContainer">
+                    <!-- Results will be populated here -->
+                </div>
+
+                <div class="export-section">
+                    <button class="btn-secondary" id="exportResults">
+                        <i class="fas fa-download"></i> Export Report
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
